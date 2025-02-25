@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Hub - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="dashboard.css">
+    
+</head>
+<body>
+    <!-- Header to match the image -->
+    <!-- <header>
+        <div class="logo">Unity Hub</div>
+        <div class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="Dashboard.html" class="active">Dashboard</a>
+            <a href="projects.html">Projects</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile-section">
+            <div class="profile-circle">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header> -->
+    <nav id="navbar">
+        <div class="nav-content">
+          <div class="nav-left">
+            <div class="logo">Unity Hub</div>
+          </div>
+          <div class="nav-links">
+            <a href="Home.html" class="nav-link">Home</a>
+            <a href="Dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <div class="profile-section">
+            <div class="profile-circle">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+          </div>
+        </div>
+      </nav>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Dashboard Overview</h1>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Total Projects</div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Ongoing Projects</div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Upcoming Projects</div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-hourglass-start"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">Completed Projects</div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-card">
+                <h2 class="section-title">Project Progress</h2>
+                <canvas id="projectProgressChart" class="chart-canvas"></canvas>
+            </div>
+            
+            <div class="chart-card">
+                <h2 class="section-title">Projects by Priority</h2>
+                <div class="priority-donut">
+                    <div class="donut-chart">
+                        <canvas id="priorityChart"></canvas>
+                        <div class="donut-inner">
+                            <div class="donut-label">24</div>
+                            <div class="donut-sublabel">Total</div>
+                        </div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color high-color"></div>
+                            <div class="legend-text">High Priority (9)</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color medium-color"></div>
+                            <div class="legend-text">Medium Priority (10)</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color low-color"></div>
+                            <div class="legend-text">Low Priority (5)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Ongoing Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3 class="project-title">3D Platformer Game</h3>
+                <div class="project-details">
+                    <span>Due: Mar 15, 2025</span>
+                    <span class="priority-badge priority-high">High Priority</span>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-bar" style="width: 65%;"></div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">VR Experience</h3>
+                <div class="project-details">
+                    <span>Due: Apr 10, 2025</span>
+                    <span class="priority-badge priority-medium">Medium Priority</span>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-bar" style="width: 40%;"></div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Mobile Puzzle Game</h3>
+                <div class="project-details">
+                    <span>Due: Mar 30, 2025</span>
+                    <span class="priority-badge priority-high">High Priority</span>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">AR Demo</h3>
+                <div class="project-details">
+                    <span>Due: May 5, 2025</span>
+                    <span class="priority-badge priority-low">Low Priority</span>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-bar" style="width: 25%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Upcoming Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3 class="project-title">RPG Game Framework</h3>
+                <div class="project-details">
+                    <span>Starts: Mar 20, 2025</span>
+                    <span class="priority-badge priority-high">High Priority</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Educational Game</h3>
+                <div class="project-details">
+                    <span>Starts: Apr 15, 2025</span>
+                    <span class="priority-badge priority-medium">Medium Priority</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Asset Store Package</h3>
+                <div class="project-details">
+                    <span>Starts: Apr 5, 2025</span>
+                    <span class="priority-badge priority-low">Low Priority</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script>
+        // Project Progress Chart
+        const progressCtx = document.getElementById('projectProgressChart').getContext('2d');
+        const progressChart = new Chart(progressCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Completed', 'Ongoing', 'Upcoming'],
+                datasets: [{
+                    label: 'Projects',
+                    data: [11, 8, 5],
+                    backgroundColor: [
+                        '#276EF1',
+                        '#3498db',
+                        '#9b59b6'
+                    ],
+                    borderColor: [
+                        '#276EF1',
+                        '#3498db',
+                        '#9b59b6'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        ticks: {
+                            color: '#777'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#777'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Priority Donut Chart
+        const priorityCtx = document.getElementById('priorityChart').getContext('2d');
+        const priorityChart = new Chart(priorityCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['High', 'Medium', 'Low'],
+                datasets: [{
+                    data: [9, 10, 5],
+                    backgroundColor: [
+                        '#ff4c4c',
+                        '#ffb142',
+                        '#276EF1'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
