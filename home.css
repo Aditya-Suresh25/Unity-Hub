@@ -22,7 +22,9 @@
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 h1 {
@@ -59,7 +61,7 @@ h1 {
 
 .highlight-text:hover::after {
   transform: scaleX(1);
-} 
+}
 
 .button-group {
   display: flex;
@@ -124,6 +126,7 @@ h1 {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-300px * 4 - 8rem));
   }
@@ -191,16 +194,18 @@ h1 {
   background: #f8fafc;
   padding: 5rem 2rem;
 }
- .contact {
+
+.contact {
   background: #f8fafc;
   padding: 5rem 2rem;
 }
 
-.about-content{
+.about-content {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
+
 .contact-content {
   max-width: 800px;
   margin: 0 auto;
@@ -279,12 +284,7 @@ h1 {
 }
 
 /* Footer */
-footer {
-  background: #000000;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-}
+
 /* about-section.css */
 /* Add these styles to a new CSS file and import it in your main CSS file */
 .about-modern {
@@ -349,7 +349,7 @@ footer {
 
 .about-images {
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
@@ -464,7 +464,7 @@ footer {
     flex-direction: column;
   }
 
-  .about-modern { 
+  .about-modern {
     padding: 3rem 1rem;
   }
 }
@@ -474,30 +474,37 @@ footer {
   .nav-links {
     display: none;
   }
+
   h1 {
     font-size: 2.5rem;
   }
+
   .hero-description {
     font-size: 1.125rem;
   }
+
   .button-group {
     flex-direction: column;
     align-items: center;
   }
+
   .marquee-item {
     flex: 0 0 250px;
   }
+
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(calc(-250px * 4 - 8rem));
     }
   }
-  
-}
-#typed-text{
 
-color: blue;
+}
+
+#typed-text {
+
+  color: blue;
 }
