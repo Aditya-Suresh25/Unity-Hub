@@ -1,434 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Management</title>
-    <style>
-    /* Reset and Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unity Hub - Projects</title>
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="project.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-body {
-    background: #f4f6f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-/* Container */
-.container {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-}
-
-.card-title {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-/* Sorting Controls */
-.sort-controls {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.sort-label {
-    margin-right: 10px;
-    font-weight: 600;
-}
-
-.sort-select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* Project Grid */
-.project-grid {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-}
-
-/* Project Cards */
-.project-item {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    border-left: 6px solid;
-}
-
-.project-item:hover {
-    transform: translateY(-5px);
-}
-
-.project-info h3 {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.project-description {
-    color: #666;
-    font-size: 0.9rem;
-    margin-top: 8px;
-    line-height: 1.4;
-}
-
-.project-date {
-    font-size: 0.85rem;
-    color: #555;
-    margin-top: 5px;
-}
-
-/* Priority Colors */
-.priority-high {
-    border-left-color: #e63946;
-}
-
-.priority-medium {
-    border-left-color: #ffb703;
-}
-
-.priority-low {
-    border-left-color: #38b000;
-}
-
-/* Delete Button */
-.btn-delete {
-    background-color: #dc3545;
-    color: white;
-    padding: 7px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.btn-delete:hover {
-    background-color: #b02a37;
-}
-
-/* Modal */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
-    position: relative;
-    animation: slideDown 0.3s ease;
-}
-
-/* Modal Header */
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.modal-title {
-    font-size: 1.5rem;
-    color: #1a1a1a;
-}
-
-.close-button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-}
-
-/* Form */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #4b5563;
-    font-weight: 500;
-}
-
-input,
-textarea,
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.btn-secondary {
-    background-color: #6b7280;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-secondary:hover {
-    background-color: #4b5563;
-}
-
-/* Animations */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="card">
-            <h2 class="card-title">Projects</h2>
-            <button id="createProjectBtn" class="btn-primary">Create New Project</button>
-            <div class="sort-controls">
-                <span class="sort-label">Sort by:</span>
-                <select id="sortType" class="sort-select">
-                    <option value="priority">Priority</option>
-                    <option value="date">Due Date</option>
-                </select>
-            </div>
-            <div id="projectList" class="project-grid">
-                <!-- Projects will be added here dynamically -->
-            </div>
+  <body>
+    <nav id="navbar">
+      <div class="nav-content">
+        <div class="nav-left">
+          <div class="logo">Unity Hub</div>
         </div>
-    </div>
-
-    <!-- Modal -->
-    <div id="projectModal" class="modal-overlay">
-        <div class="modal">
-            <div class="modal-header">
-                <h2 class="modal-title">Create New Project</h2>
-                <button class="close-button">&times;</button>
-            </div>
-            <form id="projectForm">
-                <div class="form-group">
-                    <label class="form-label">Project Name</label>
-                    <input type="text" id="projectName" required class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Description</label>
-                    <textarea id="projectDescription" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Due Date</label>
-                    <input type="date" id="projectDate" required class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Priority</label>
-                    <select id="projectPriority" required class="form-control">
-                        <option value="">Select Priority</option>
-                        <option value="high">High Priority</option>
-                        <option value="medium">Medium Priority</option>
-                        <option value="low">Low Priority</option>
-                    </select>
-                </div>
-
-                <div class="modal-buttons">
-                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
-                    <button type="submit" class="btn-primary">Create Project</button>
-                </div>
-            </form>
+        <div class="nav-links">
+          <a href="Home.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link active">Projects</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <div class="auth-buttons">
+            <button class="btn btn-secondary" onclick="openLogin()">
+              Login
+            </button>
+            <button class="btn btn-primary" onclick="openRegister()">
+              Sign Up
+            </button>
+          </div>
         </div>
+      </div>
+    </nav>
+    <section class="projects-container">
+      <div class="header-container">
+        <h1>Government Projects</h1>
+        <button id="add-project-btn" class="add-project-btn">
+          + Add New Project
+        </button>
+      </div>
+
+      <div class="filter-container">
+        <div class="filter-tabs">
+          <div class="filter-tab active" data-status="all">All Projects</div>
+          <div class="filter-tab" data-status="upcoming">Upcoming</div>
+          <div class="filter-tab" data-status="ongoing">Ongoing</div>
+          <div class="filter-tab" data-status="completed">Completed</div>
+        </div>
+
+        <div class="search-filter">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search projects..."
+          />
+          <select id="department-filter">
+            <option value="all">All Departments</option>
+            <option value="transport">Transport</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="education">Education</option>
+            <option value="infrastructure">Infrastructure</option>
+            <option value="energy">Energy</option>
+            <option value="agriculture">Agriculture</option>
+            <option value="technology">Technology</option>
+            <option value="environment">Environment</option>
+            <option value="social">Social Affairs</option>
+            <option value="urban">Urban Development</option>
+            <option value="defense">Defense</option>
+            <option value="tourism">Tourism</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+        <!-- Projects will be dynamically inserted here -->
+      </div>
+
+      <div class="pagination" id="pagination">
+        <!-- Pagination buttons will be added here -->
+      </div>
+    </section>
+
+    <!-- Modal for adding a new project -->
+    <div id="add-project-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Add New Project</h2>
+        <form id="add-project-form" action="projects_crud.php" method="post">
+          <div class="form-group">
+            <label for="project-title">Title</label>
+            <input type="text" id="project-title" name="title" required />
+          </div>
+          <div class="form-group">
+            <label for="project-department">Department</label>
+            <select id="project-department" name="department_id" required>
+              <option value="">Select Department</option>
+              <option value="1">Transport</option>
+              <option value="2">Healthcare</option>
+              <option value="3">Education</option>
+              <option value="4">Infrastructure</option>
+              <option value="5">Energy</option>
+              <option value="6">Agriculture</option>
+              <option value="7">Technology</option>
+              <option value="8">Environment</option>
+              <option value="9">Social Affairs</option>
+              <option value="10">Urban Development</option>
+              <option value="11">Defense</option>
+              <option value="12">Tourism</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project-location">Location</label>
+            <select id="project-location" name="location" required>
+              <option value="">Select City</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Surat">Surat</option>
+              <option value="Pune">Pune</option>
+              <option value="Jaipur">Jaipur</option>
+              <option value="Lucknow">Lucknow</option>
+              <option value="Kanpur">Kanpur</option>
+              <option value="Nagpur">Nagpur</option>
+              <option value="Indore">Indore</option>
+              <option value="Thane">Thane</option>
+              <option value="Bhopal">Bhopal</option>
+              <option value="Visakhapatnam">Visakhapatnam</option>
+              <option value="Patna">Patna</option>
+              <option value="Vadodara">Vadodara</option>
+              <option value="Ghaziabad">Ghaziabad</option>
+              <option value="Ludhiana">Ludhiana</option>
+              <option value="Agra">Agra</option>
+              <option value="Nashik">Nashik</option>
+              <option value="Faridabad">Faridabad</option>
+              <option value="Meerut">Meerut</option>
+              <option value="Rajkot">Rajkot</option>
+              <option value="Kalyan-Dombivli">Kalyan-Dombivli</option>
+              <option value="Vasai-Virar">Vasai-Virar</option>
+              <option value="Varanasi">Varanasi</option>
+              <option value="Srinagar">Srinagar</option>
+              <option value="Aurangabad">Aurangabad</option>
+              <option value="Dhanbad">Dhanbad</option>
+              <option value="Amritsar">Amritsar</option>
+              <option value="Navi Mumbai">Navi Mumbai</option>
+              <option value="Allahabad">Allahabad</option>
+              <option value="Howrah">Howrah</option>
+              <option value="Gwalior">Gwalior</option>
+              <option value="Jabalpur">Jabalpur</option>
+              <option value="Coimbatore">Coimbatore</option>
+              <option value="Vijayawada">Vijayawada</option>
+              <option value="Jodhpur">Jodhpur</option>
+              <option value="Madurai">Madurai</option>
+              <option value="Raipur">Raipur</option>
+              <option value="Kota">Kota</option>
+              <option value="Chandigarh">Chandigarh</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project-start-date">Start Date</label>
+            <input type="date" id="project-start-date" name="start_date" required />
+          </div>
+          <div class="form-group">
+            <label for="project-end-date">End Date</label>
+            <input type="date" id="project-end-date" name="end_date" required />
+          </div>
+          <div class="form-group">
+            <label for="project-priority">Priority</label>
+            <select id="project-priority" name="priority" required>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project-status">Status</label>
+            <select id="project-status" name="status" required>
+              <option value="upcoming">Upcoming</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project-progress">Progress (%)</label>
+            <input type="number" id="project-progress" name="progress" min="0" max="100" value="0" required />
+          </div>
+          <input type="hidden" name="action" value="create" />
+          <button type="submit" class="submit-btn">Add Project</button>
+        </form>
+      </div>
     </div>
-
-    <script>
-        class ProjectManager {
-            constructor() {
-                this.projects = JSON.parse(localStorage.getItem('projects')) || [];
-                this.modal = document.getElementById('projectModal');
-                this.form = document.getElementById('projectForm');
-                this.projectList = document.getElementById('projectList');
-                this.sortSelect = document.getElementById('sortType');
-                
-                this.init();
-            }
-
-            init() {
-                // Modal controls
-                document.getElementById('createProjectBtn').addEventListener('click', () => this.openModal());
-                document.querySelector('.close-button').addEventListener('click', () => this.closeModal());
-                document.getElementById('cancelBtn').addEventListener('click', () => this.closeModal());
-                
-                // Close modal when clicking outside
-                this.modal.addEventListener('click', (e) => {
-                    if (e.target === this.modal) this.closeModal();
-                });
-
-                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-                this.sortSelect.addEventListener('change', () => this.renderProjects());
-                this.renderProjects();
-            }
-
-            openModal() {
-                this.modal.style.display = 'flex';
-            }
-
-            closeModal() {
-                this.modal.style.display = 'none';
-                this.form.reset();
-            }
-
-            handleSubmit(e) {
-                e.preventDefault();
-                
-                const project = {
-                    id: Date.now(),
-                    name: document.getElementById('projectName').value,
-                    description: document.getElementById('projectDescription').value,
-                    date: document.getElementById('projectDate').value,
-                    priority: document.getElementById('projectPriority').value
-                };
-
-                this.projects.push(project);
-                this.saveProjects();
-                this.renderProjects();
-                this.closeModal();
-            }
-
-            async deleteProject(id) {
-                const projectElement = document.querySelector(`[data-id="${id}"]`);
-                projectElement.style.animation = 'slideUp 0.5s ease reverse';
-
-                await new Promise(resolve => setTimeout(resolve, 500));
-
-                this.projects = this.projects.filter(project => project.id !== id);
-                this.saveProjects();
-                this.renderProjects();
-            }
-
-            saveProjects() {
-                localStorage.setItem('projects', JSON.stringify(this.projects));
-            }
-
-            formatDate(dateString) {
-                return new Date(dateString).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-            }
-
-            sortProjects() {
-                const sortType = this.sortSelect.value;
-                
-                if (sortType === 'priority') {
-                    return [...this.projects].sort((a, b) => {
-                        const priorityOrder = { high: 1, medium: 2, low: 3 };
-                        const priorityDiff = priorityOrder[a.priority] - priorityOrder[b.priority];
-                        if (priorityDiff === 0) {
-                            return new Date(a.date) - new Date(b.date);
-                        }
-                        return priorityDiff;
-                    });
-                } else {
-                    return [...this.projects].sort((a, b) => new Date(a.date) - new Date(b.date));
-                }
-            }
-
-            renderProjects() {
-                this.projectList.innerHTML = '';
-                
-                const sortedProjects = this.sortProjects();
-
-                sortedProjects.forEach(project => {
-                    const projectElement = document.createElement('div');
-                    projectElement.className = `project-item ${project.priority}-priority`;
-                    projectElement.setAttribute('data-id', project.id);
-                    projectElement.innerHTML = `
-                        <div class="project-info">
-                            <div class="project-priority priority-${project.priority}">
-                                ${project.priority.charAt(0).toUpperCase() + project.priority.slice(1)} Priority
-                            </div>
-                            <h3>${project.name}</h3>
-                            <div class="project-description">${project.description}</div>
-                            <div class="project-date">Due: ${this.formatDate(project.date)}</div>
-                            <button class="btn-delete" onclick="projectManager.deleteProject(${project.id})">
-                                Delete
-                            </button>
-                        </div>
-                    `;
-                    this.projectList.appendChild(projectElement);
-                });
-            }
-        }
-
-        const projectManager = new ProjectManager();
-    </script>
-</body>
+    <script src="project.js"></script>
+  </body>
 </html>
