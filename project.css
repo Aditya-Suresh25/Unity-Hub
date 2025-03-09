@@ -1,14 +1,27 @@
+<<<<<<< HEAD
 /* Project page styles */
 .projects-container {
   max-width: 1200px;
   margin: 100px auto 50px;
   padding: 0 20px;
+=======
+
+body{
+    margin-top: 8%;
+}
+.projects-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
   margin-bottom: 30px;
 }
 
@@ -29,17 +42,29 @@
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
+=======
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 .filter-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
   flex-wrap: wrap;
+<<<<<<< HEAD
   gap: 20px;
+=======
+  gap: 15px;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .filter-tabs {
   display: flex;
+<<<<<<< HEAD
   gap: 15px;
 }
 
@@ -50,17 +75,32 @@
   border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
   background: white;
+=======
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.filter-tab {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .filter-tab.active {
   background-color: #2563eb;
   color: white;
+<<<<<<< HEAD
   border-color: #2563eb;
 }
 
 .filter-tab:hover:not(.active) {
   border-color: #2563eb;
   color: #2563eb;
+=======
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .search-filter {
@@ -68,6 +108,7 @@
   gap: 10px;
 }
 
+<<<<<<< HEAD
 #search-input, #department-filter {
   padding: 8px 16px;
   border-radius: 8px;
@@ -91,10 +132,33 @@
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+=======
+.search-filter input, .search-filter select {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.project-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: white;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+<<<<<<< HEAD
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -180,6 +244,46 @@
 .detail-value {
   font-size: 0.875rem;
   color: #1e293b;
+=======
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-header {
+  padding: 20px;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.project-department {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.project-body {
+  padding: 20px;
+}
+
+.project-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.detail-value {
+  font-size: 14px;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
   font-weight: 500;
 }
 
@@ -187,6 +291,7 @@
   margin-top: 15px;
 }
 
+<<<<<<< HEAD
 .progress-label {
   display: flex;
   justify-content: space-between;
@@ -198,12 +303,18 @@
 .progress-bar {
   height: 8px;
   background-color: #e2e8f0;
+=======
+.progress-bar {
+  height: 8px;
+  background-color: #e5e7eb;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
   border-radius: 4px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
+<<<<<<< HEAD
   background-color: #2563eb;
   border-radius: 4px;
 }
@@ -217,6 +328,86 @@
 }
 
 /* Modal Styles */
+=======
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.low-priority {
+  background-color: #10b981;
+}
+
+.medium-priority {
+  background-color: #f59e0b;
+}
+
+.high-priority {
+  background-color: #ef4444;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.no-projects {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 5px;
+}
+
+.page-button {
+  padding: 8px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.page-button.active {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.page-button:hover:not(.active) {
+  background-color: #f9fafb;
+}
+
+/* Add Project Button & Modal Styles */
+.add-project-btn {
+  padding: 12px 24px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: fit-content;
+}
+
+.add-project-btn:hover {
+  background-color: #1d4ed8;
+}
+
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 .modal {
   display: none;
   position: fixed;
@@ -225,11 +416,15 @@
   top: 0;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
   overflow: auto;
+=======
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
+<<<<<<< HEAD
   background-color: white;
   margin: 10% auto;
   padding: 30px;
@@ -238,10 +433,23 @@
   width: 90%;
   position: relative;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+=======
+  position: relative;
+  background-color: white;
+  margin: 5% auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-height: 80vh;
+  overflow-y: auto;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .close-modal {
   position: absolute;
+<<<<<<< HEAD
   right: 20px;
   top: 20px;
   font-size: 28px;
@@ -252,6 +460,12 @@
 
 .close-modal:hover {
   color: #1e293b;
+=======
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .form-group {
@@ -262,6 +476,7 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
+<<<<<<< HEAD
   color: #4b5563;
 }
 
@@ -296,12 +511,43 @@
   display: block;
   width: 100%;
   margin-top: 10px;
+=======
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#project-location {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
 }
 
 .submit-btn:hover {
   background-color: #1d4ed8;
 }
 
+<<<<<<< HEAD
 /* Button styles */
 .btn {
   padding: 8px 16px;
@@ -372,6 +618,17 @@
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+=======
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .add-project-btn {
+    width: 100%;
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
   }
   
   .filter-container {
@@ -383,6 +640,7 @@
     flex-direction: column;
   }
   
+<<<<<<< HEAD
   .header-container {
     flex-direction: column;
     gap: 15px;
@@ -394,3 +652,9 @@
     padding: 20px;
   }
 }
+=======
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+>>>>>>> b314afec65d92cf39476d31d3c968d7e156e8bfc
