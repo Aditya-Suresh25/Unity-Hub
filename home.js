@@ -117,3 +117,11 @@ window.addEventListener("scroll", () => {
   }
 
 });
+
+const navLinkE1s = document.querySelectorAll('.nav-link');
+const windowPathname = window.location.pathname;
+navLinkE1s.forEach(navLinkE1 => {
+  if (navLinkE1.href.includes(windowPathname)) {
+    navLinkE1.classList.add('active');
+  }
+});

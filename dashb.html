@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unity Hub - Dashboard</title>
+    <link rel="stylesheet" href="navbar1.css" />
+    <!-- <script src="navbar.js"></script> -->
+    <link rel="stylesheet" href="dashb.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="logo">Unity Hub</div>
+      <ul>
+        <li><a class="navlink" href="home1.html">Home</a></li>
+        <li><a class="navlink" href="projects.html">Projects</a></li>
+        <li><a class="navlink" href="#ong">Ongoing</a></li>
+        <li><a class="navlink" href="#upc">Upcoming</a></li>
+        
+
+      </ul>
+      <!-- <div class="auth-buttons">
+        <button class="btn btn-secondary" onclick="openLogin()">Login</button>
+        <button class="btn btn-primary" onclick="openRegister()">
+          Sign Up
+        </button>
+      </div> -->
+      <img src="images/user.png" class="user-icon" onclick="toggleMenu()">
+
+      <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu">
+              <div class="user-info">
+                  <img src="images/user.png">
+                  <h2>John meowsy</h2>
+              </div>
+              <hr>
+              <a href="#" class="sub-menu-link">
+                  <img src="images/profile.png">
+                  <p>Edit Profile</p>
+                  <span>></span>
+              </a> 
+              <a href="#" class="sub-menu-link">
+                  <img src="images/setting.png">
+                  <p>Settings</p>
+                  <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                  <img src="images/help.png">
+                  <p>help</p>
+                  <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                  <img src="images/logout.png">
+                  <p>Logout</p>
+                  <span>></span>
+              </a>
+          </div>
+    </nav>
+<!-- dashboard -->
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Dashboard Overview</h1>
+      </div>
+
+      <div class="dashboard-section">
+        <h2>Recent Projects</h2>
+        <div id="dashboard-projects" class="projects-grid">
+          <!-- Projects will be loaded here dynamically -->
+        </div>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-header">
+            <div>
+              <div class="stat-number"><?php echo $totalProjects; ?></div>
+              <div class="stat-label">Total Projects</div>
+            </div>
+            <div class="stat-icon">
+              <i class="fas fa-cubes"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div>
+              <div class="stat-number"><?php echo $ongoingProjects; ?></div>
+              <div class="stat-label">Ongoing Projects</div>
+            </div>
+            <div class="stat-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div>
+              <div class="stat-number"><?php echo $upcomingProjects; ?></div>
+              <div class="stat-label""">Upcoming Projects</div>
+            </div>
+            <div class="stat-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div>
+              <div class="stat-number"><?php echo $completedProjects; ?></div>
+              <div class="stat-label">Completed Projects</div>
+            </div>
+            <div class="stat-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-card">
+          <h2 class="section-title">Project Progress</h2>
+          <canvas id="projectProgressChart" class="chart-canvas"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h2 class="section-title">Projects by Priority</h2>
+          <div class="priority-donut">
+            <div class="donut-chart">
+              <canvas id="priorityChart"></canvas>
+              <div class="donut-inner">
+                <div class="donut-label">24</div>
+                <div class="donut-sublabel">Total</div>
+              </div>
+            </div>
+            <div class="legend">
+              <div class="legend-item">
+                <div class="legend-color high-color"></div>
+                <div class="legend-text">High Priority (9)</div>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color medium-color"></div>
+                <div class="legend-text">Medium Priority (10)</div>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color low-color"></div>
+                <div class="legend-text">Low Priority (5)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title" id="ong">Ongoing Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3 class="project-title">3D Platformer Game</h3>
+          <div class="project-details">
+            <span><i class="fas fa-calendar-day"></i> Due: Mar 15, 2025</span>
+            <span class="priority-badge priority-high">High Priority</span>
+          </div>
+          <div class="project-progress">
+            <div class="progress-bar" style="width: 65%"></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">VR Experience</h3>
+          <div class="project-details">
+            <span><i class="fas fa-calendar-day"></i> Due: Apr 10, 2025</span>
+            <span class="priority-badge priority-medium">Medium Priority</span>
+          </div>
+          <div class="project-progress">
+            <div class="progress-bar" style="width: 40%"></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">Mobile Puzzle Game</h3>
+          <div class="project-details">
+            <span><i class="fas fa-calendar-day"></i> Due: Mar 30, 2025</span>
+            <span class="priority-badge priority-high">High Priority</span>
+          </div>
+          <div class="project-progress">
+            <div class="progress-bar" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">AR Demo</h3>
+          <div class="project-details">
+            <span><i class="fas fa-calendar-day"></i> Due: May 5, 2025</span>
+            <span class="priority-badge priority-low">Low Priority</span>
+          </div>
+          <div class="project-progress">
+            <div class="progress-bar" style="width: 25%"></div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title" id="upc">Upcoming Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3 class="project-title">RPG Game Framework</h3>
+          <div class="project-details">
+            <span><i class="fas fa-play-circle"></i> Starts: Mar 20, 2025</span>
+            <span class="priority-badge priority-high">High Priority</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">Educational Game</h3>
+          <div class="project-details">
+            <span><i class="fas fa-play-circle"></i> Starts: Apr 15, 2025</span>
+            <span class="priority-badge priority-medium">Medium Priority</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">Asset Store Package</h3>
+          <div class="project-details">
+            <span><i class="fas fa-play-circle"></i> Starts: Apr 5, 2025</span>
+            <span class="priority-badge priority-low">Low Priority</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+    <!-- <footer>
+      <p>&copy; 2025 Unity Hub. All rights reserved.</p>
+    </footer> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script>
+      //sub menu pop up
+      let subMenu = document.getElementById("subMenu");
+      function toggleMenu() {
+        subMenu.classList.toggle("open-menu");
+      }
+      // Auto-refresh projects every 5 minutes (300000 milliseconds)
+      setInterval(loadProjects, 300000);
+      // Fade in animations for project cards
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set initial opacity for all project cards
+        const projectCards = document.querySelectorAll(".project-card");
+        projectCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = 1;
+          }, 100 * index);
+        });
+
+        // Animate progress bars on load
+        const progressBars = document.querySelectorAll(".progress-bar");
+        setTimeout(() => {
+          progressBars.forEach((bar) => {
+            const width = bar.style.width;
+            bar.style.width = "0";
+            setTimeout(() => {
+              bar.style.width = width;
+            }, 300);
+          });
+        }, 800);
+      });
+
+      // Project Progress Chart
+      const progressCtx = document
+        .getElementById("projectProgressChart")
+        .getContext("2d");
+      const progressChart = new Chart(progressCtx, {
+        type: "bar",
+        data: {
+          labels: ["Completed", "Ongoing", "Upcoming"],
+          datasets: [
+            {
+              label: "Projects",
+              data: [11, 8, 5],
+              backgroundColor: ["#276EF1", "#3498db", "#9b59b6"],
+              borderColor: ["#276EF1", "#3498db", "#9b59b6"],
+              borderWidth: 1,
+              borderRadius: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          animation: {
+            duration: 2000,
+            easing: "easeOutQuart",
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: "rgba(0, 0, 0, 0.05)",
+              },
+              ticks: {
+                color: "#777",
+                font: {
+                  family: "Poppins",
+                },
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+              ticks: {
+                color: "#777",
+                font: {
+                  family: "Poppins",
+                },
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              titleFont: {
+                family: "Poppins",
+                size: 14,
+              },
+              bodyFont: {
+                family: "Poppins",
+                size: 13,
+              },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: function (context) {
+                  return `Number of projects: ${context.raw}`;
+                },
+              },
+            },
+          },
+        },
+      });
+
+      // Priority Donut Chart
+      const priorityCtx = document
+        .getElementById("priorityChart")
+        .getContext("2d");
+      const priorityChart = new Chart(priorityCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["High", "Medium", "Low"],
+          datasets: [
+            {
+              data: [9, 10, 5],
+              backgroundColor: ["#ff4c4c", "#ffb142", "#276EF1"],
+              borderWidth: 0,
+              hoverOffset: 15,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: "90%",
+          animation: {
+            animateScale: true,
+            animateRotate: true,
+            duration: 2000,
+            easing: "easeOutBounce",
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              titleFont: {
+                family: "Poppins",
+                size: 16,
+              },
+              bodyFont: {
+                family: "Poppins",
+                size: 13,
+              },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: function (context) {
+                  const value = context.raw;
+                  const total = context.dataset.data.reduce(
+                    (acc, data) => acc + data,
+                    0
+                  );
+                  const percentage = ((value / total) * 100).toFixed(1);
+                  return `${context.label} Priority: ${value} projects (${percentage}%)`;
+                },
+              },
+            },
+          },
+        },
+      });
+
+      // Function to fetch and display projects
+      function loadProjects() {
+        fetch("get_projects.php")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.error) {
+              console.error("Error loading projects:", data.error);
+              return;
+            }
+
+            displayProjects(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching projects:", error);
+          });
+      }
+
+      // Function to display projects in the dashboard
+      function displayProjects(projects) {
+        const projectContainer = document.getElementById("dashboard-projects");
+
+        if (!projectContainer) {
+          console.error("Project container not found");
+          return;
+        }
+
+        // Clear the container
+        projectContainer.innerHTML = "";
+
+        if (projects.length === 0) {
+          projectContainer.innerHTML = "<p>No projects found.</p>";
+          return;
+        }
+
+        // Create project cards
+        projects.forEach((project) => {
+          const status =
+            project.status.charAt(0).toUpperCase() + project.status.slice(1);
+          const priority =
+            project.priority.charAt(0).toUpperCase() +
+            project.priority.slice(1);
+
+          const projectCard = document.createElement("div");
+          projectCard.className = "project-card";
+          projectCard.innerHTML = `
+            <h3>${project.title}</h3>
+            <div class="project-info">
+                <p><strong>Department:</strong> ${project.department_name}</p>
+                <p><strong>Location:</strong> ${project.location}</p>
+                <p><strong>Status:</strong> <span class="status status-${
+                  project.status
+                }">${status}</span></p>
+                <p><strong>Priority:</strong> <span class="priority priority-${
+                  project.priority
+                }">${priority}</span></p>
+                <p><strong>Progress:</strong> ${project.progress}%</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: ${
+                      project.progress
+                    }%"></div>
+                </div>
+                <p><strong>Start Date:</strong> ${new Date(
+                  project.start_date
+                ).toLocaleDateString()}  <strong><br>Due Date:</strong> ${new Date(
+            project.end_date
+          ).toLocaleDateString()}</p>
+            </div>
+        `;
+
+          projectContainer.appendChild(projectCard);
+        });
+      }
+
+      // Load projects when the page loads
+      document.addEventListener("DOMContentLoaded", loadProjects);
+
+    </script>
+  </body>
+</html>
