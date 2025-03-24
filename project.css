@@ -1,8 +1,28 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  color: #1a1a1a;
+}
 /* Project page styles */
 .projects-container {
   max-width: 1200px;
   margin: 100px auto 50px;
   padding: 0 20px;
+  
+
 }
 
 .header-container {
@@ -10,6 +30,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  
 }
 
 .add-project-btn {

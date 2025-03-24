@@ -1,34 +1,35 @@
 new Typed("#typed-text", {
-    strings: [
-        "Modern Platform",
-        "Seamless Collaboration",
-        "Resource Sharing"
-    ],
-    typeSpeed: 75,
-    backSpeed: 30,
-    loop: true,
-    cursorChar: '|',
-    fadeOut: true,
-    fadeOutClass: 'typed-fade-out',
-    fadeOutDelay: 500
+  strings: [
+    "Modern Platform",
+    "Seamless Collaboration",
+    "Resource Sharing"
+  ],
+  typeSpeed: 75,
+  backSpeed: 30,
+  loop: true,
+  cursorChar: '|',
+  fadeOut: true,
+  fadeOutClass: 'typed-fade-out',
+  fadeOutDelay: 500
 });
 
 // Modal functions
 function openLogin() {
-    document.getElementById("login-modal").style.display = "flex";
+  document.getElementById("login-modal").style.display = "flex";
 }
 function closeLogin() {
-    document.getElementById("login-modal").style.display = "none";
+  document.getElementById("login-modal").style.display = "none";
 }
 function openRegister() {
-    document.getElementById("register-modal").style.display = "flex";
+  document.getElementById("register-modal").style.display = "flex";
 }
 function closeRegister() {
-    document.getElementById("register-modal").style.display = "none";
+  document.getElementById("register-modal").style.display = "none";
 }
-function handleLogin(e) {
-    e.preventDefault();
-  const form = e.target;
+function handleLogin(event) {
+  event.preventDefault();
+
+  const form = event.target;
   const formData = new FormData(form);
 
   fetch('login.php', {
@@ -37,37 +38,36 @@ function handleLogin(e) {
   })
     .then(response => response.json())
     .then(data => {
-      if(data.status === 'success') {
-        alert(data.message);
-        closeLogin();
-        // Optionally, redirect to a dashboard:
-        // window.location.href = 'dashboard.php';
+      if (data.status === 'success') {
+        // Redirect to dashboard
+        window.location.href = 'dashb.html';
       } else {
-        alert(data.message);
+        // Show error message
+        alert(data.message || 'Login failed. Please try again.');
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('An error occurred during login.');
+      alert('An error occurred during login. Please try again.');
     });
 }
 function handleRegister(e) {
-    e.preventDefault();
-  
-    // Gather form data
-    const form = e.target;
-    const formData = new FormData(form);
-  
-    // Optionally, add an "action" field to tell your backend what to do:
-    formData.append('action', 'registerUser');
-  
-    fetch('api.php', {
-      method: 'POST',
-      body: formData
-    })
+  e.preventDefault();
+
+  // Gather form data
+  const form = e.target;
+  const formData = new FormData(form);
+
+  // Optionally, add an "action" field to tell your backend what to do:
+  formData.append('action', 'registerUser');
+
+  fetch('api.php', {
+    method: 'POST',
+    body: formData
+  })
     .then(response => response.json())
     .then(data => {
-      if(data.status === 'success') {
+      if (data.status === 'success') {
         alert(data.message);
         closeRegister();
       } else {
@@ -78,11 +78,11 @@ function handleRegister(e) {
       console.error('Error:', error);
       alert('An error occurred during registration.');
     });
-  }
+}
 function handleContactSubmit(e) {
-    e.preventDefault();
-    alert("Message sent! We will contact you soon.");
-    e.target.reset();
+  e.preventDefault();
+  alert("Message sent! We will contact you soon.");
+  e.target.reset();
 }
 
 // Active nav link highlighting
@@ -90,30 +90,39 @@ const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("section");
 
 function setActiveLink() {
-    let current = "";
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 100) {
-            current = section.getAttribute("id");
-        }
-    });
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (window.scrollY >= sectionTop - 100) {
+      current = section.getAttribute("id");
+    }
+  });
 
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").slice(1) === current) {
-            link.classList.add("active");
-        }
-    });
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").slice(1) === current) {
+      link.classList.add("active");
+    }
+  });
 }
 
 window.addEventListener("scroll", setActiveLink);
 
 // Parallax effect for hero text
 window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector(".hero-content");
-    if (heroContent) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
+  const scrolled = window.pageYOffset;
+  const heroContent = document.querySelector(".hero-content");
+  if (heroContent) {
+    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+  }
 
 });
+
+const navLinkE1s = document.querySelectorAll('.navlink');
+const windowPathname = window.location.pathname;
+navLinkE1s.forEach(navLinkE1 => {
+  if (navLinkE1.href.includes(windowPathname)) {
+    navLinkE1.classList.add('active');
+  }
+});
+

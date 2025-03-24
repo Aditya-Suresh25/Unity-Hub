@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unity Hub - Projects</title>
-    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="navbar1.css" />
     <link rel="stylesheet" href="project.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -12,28 +12,44 @@
     />
   </head>
 
-  <body>
+  <body class="light">
     <nav id="navbar">
-      <div class="nav-content">
-        <div class="nav-left">
-          <div class="logo">Unity Hub</div>
-        </div>
-        <div class="nav-links">
-          <a href="Home.html" class="nav-link">Home</a>
-          <a href="projects.html" class="nav-link active">Projects</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <div class="auth-buttons">
-            <button class="btn btn-secondary" onclick="openLogin()">
-              Login
-            </button>
-            <button class="btn btn-primary" onclick="openRegister()">
-              Sign Up
-            </button>
+      <div class="logo">Unity Hub</div>
+      <ul>
+        <li><a href="home1.html">Home</a></li>
+          <li><a href="dashb.html">Dashboard</a></li>
+      </ul>
+      <img src="images/user.png" class="user-icon" onclick="toggleMenu()">
+
+      <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu">
+              <div class="user-info">
+                  <img src="images/user.png">
+                  <h2>John Suckmaballs</h2>
+              </div>
+              <hr>
+              <a href="#" class="sub-menu-link">
+                  <img src="images/profile.png">
+                  <p>Edit Profile</p>
+                  <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                  <img src="images/setting.png">
+                  <p>Settings</p>
+                  <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                  <img src="images/help.png">
+                  <p>help</p>
+                  <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                  <img src="images/logout.png">
+                  <p>Logout</p>
+                  <span>></span>
+              </a>
           </div>
-        </div>
-      </div>
-    </nav>
+  </nav>
     <section class="projects-container">
       <div class="header-container">
         <h1>Government Projects</h1>
@@ -195,6 +211,8 @@
         </form>
       </div>
     </div>
+   
+ </script>
     <script src="project.js"></script>
   </body>
 </html>

@@ -5,35 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modern Landing Page</title>
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="home1.css" />
+    <link rel="stylesheet" href="navbar1.css">
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="light">
-    <!-- Navigation -->
+    <!-- Navigation -->     
     <nav id="navbar">
-      <div class="nav-content">
-        <div class="nav-left">
-          <div class="logo">Unity Hub</div>
-        </div>
-        <div class="nav-links">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="projects.html" class="nav-link">Projects</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <div class="auth-buttons">
+        <div class="logo">Unity Hub</div>
+        <ul>
+            <li><a class="navlink" href="home1.html">Home</a></li>
+            <li><a class="navlink" href="dashb.html">Dashboard</a></li>
+            <li><a class="navlink" href="#features">Features</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact" class="contact-trigger">Contact</a></li>
+        </ul>
+        <!-- <div class="auth-buttons">
             <button class="btn btn-secondary" onclick="openLogin()">
               Login
             </button>
             <button class="btn btn-primary" onclick="openRegister()">
               Sign Up
             </button>
-          </div>
-        </div>
-      </div>
+        </div> -->
+        <img src="images/user.png" class="user-icon" onclick="toggleMenu()">
+
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img src="images/user.png">
+                    <h2>John meowsy</h2>
+                </div>
+                <hr>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/profile.png">
+                    <p>Edit Profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/setting.png">
+                    <p>Settings</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/help.png">
+                    <p>help</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/logout.png">
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+            </div>
     </nav>
 
     <!-- Hero Section -->
@@ -54,53 +82,53 @@
       <div class="marquee">
         <div class="marquee-content">
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 1" />
+            <img src="images/placeholder.png" alt="Project 1" />
             <h3>Gasline</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 2" />
+            <img src="images/placeholder.png" alt="Project 2" />
             <h3>Road Constructions</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 3" />
+            <img src="images/placeholder.png" alt="Project 3" />
             <h3>Telecom</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 4" />
+            <img src="images/placeholder.png" alt="Project 4" />
             <h3>Sewage Management</h3>
           </div>
           <!-- Duplicate items for seamless scrolling -->
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 5" />
+            <img src="images/placeholder.png" alt="Project 5" />
             <h3>City Management System</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 6" />
+            <img src="images/placeholder.png" alt="Project 6" />
             <h3>Resource Tracker</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 1" />
+            <img src="images/placeholder.png" alt="Project 1" />
             <h3>Gasline</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 2" />
+            <img src="images/placeholder.png" alt="Project 2" />
             <h3>Road Constructions</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 3" />
+            <img src="images/placeholder.png" alt="Project 3" />
             <h3>Telecom</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 4" />
+            <img src="images/placeholder.png" alt="Project 4" />
             <h3>Sewage Management</h3>
           </div>
           <!-- Duplicate items for seamless scrolling -->
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 5" />
+            <img src="images/placeholder.png" alt="Project 5" />
             <h3>City Management System</h3>
           </div>
           <div class="marquee-item">
-            <img src="/Landing page/images/img1.jpg" alt="Project 6" />
+            <img src="images/placeholder.png" alt="Project 6" />
             <h3>Resource Tracker</h3>
           </div>
         </div>
@@ -170,7 +198,7 @@
           </div>
           <div class="about-images">
             <div class="image-card">
-              <img src="/Landing page/images/img1.jpg" alt="Team collaboration" />
+              <img src="images/placeholder.png" alt="Team collaboration" />
             </div>
             
             </div>
@@ -180,29 +208,29 @@
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-icon">👥</div>
-            <div class="stat-value">69+</div>
+            <div class="stat-value">500+</div>
             <div class="stat-label">City Partners</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon">🚀</div>
-            <div class="stat-value">420+</div>
+            <div class="stat-value">150+</div>
             <div class="stat-label">Projects Completed</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon">🎯</div>
-            <div class="stat-value">0.9</div>
+            <div class="stat-value">95%</div>
             <div class="stat-label">Success Rate</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon">🏆</div>
-            <div class="stat-value">NO</div>
+            <div class="stat-value">24/7</div>
             <div class="stat-label">Support</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section
     <section class="contact" id="contact">
       <div class="contact-content">
         <h2 class="section-title">Contact Us</h2>
@@ -223,7 +251,7 @@
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
       </div>
-    </section>
+    </section> -->
 
     <!-- Login Modal -->
     <div id="login-modal" class="modal-overlay" style="display: none">
@@ -253,10 +281,100 @@
       </div>
     </div>
 
+    <!-- Contact Popup -->
+    <div class="popup-overlay" id="contactPopup">
+        <div class="contact-popup">
+          <button class="close-popup" aria-label="Close popup">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="contact-content">
+            <h2 class="section-title">Contact Us</h2>
+            <p>Have questions? We'd love to hear from you.</p>
+            <form class="contact-form" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea
+                  id="contact-message"
+                  placeholder="How can we help you?"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+  
+            <div class="contact-info">
+              <div class="contact-info-item">
+                <i class="fas fa-envelope"></i>
+                <span>info@yourcompany.com</span>
+              </div>
+              <div class="contact-info-item">
+                <i class="fas fa-phone"></i>
+                <span>+1 (555) 123-4567</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- Footer -->
     <footer>
       <p>&copy; 2025 Unity Hub. All rights reserved.</p>
     </footer>
+    <script>
+        // Toggle popup visibility
+      const contactTrigger = document.querySelector(".contact-trigger");
+      const popup = document.getElementById("contactPopup");
+      const closePopup = document.querySelector(".close-popup");
+
+      contactTrigger.addEventListener("click", () => {
+        popup.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling when popup is open
+      });
+
+      closePopup.addEventListener("click", () => {
+        popup.classList.remove("active");
+        document.body.style.overflow = ""; // Restore scrolling
+      });
+
+      // Close popup when clicking outside
+      popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+          popup.classList.remove("active");
+          document.body.style.overflow = ""; // Restore scrolling
+        }
+      });
+
+      // Form submission handler
+      function handleContactSubmit(event) {
+        event.preventDefault();
+        // Form submission logic here
+        alert("Thank you for your message! We'll get back to you soon.");
+        event.target.reset();
+        popup.classList.remove("active");
+        document.body.style.overflow = ""; // Restore scrolling
+      }
+         let subMenu = document.getElementById('subMenu');
+    function toggleMenu(){
+        subMenu.classList.toggle('open-menu');
+    }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   </body>
 </html>
